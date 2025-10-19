@@ -138,6 +138,9 @@ def run(task_from, lang_data=None):
     if TASK_DEST == "":
         TASK_DEST = f"{ROOT}\\output\\{TASK_ID}"
 
+    # ensure output folder exists
+    subprocess.run("mkdir output", cwd=f"{ROOT}", shell=True)
+
     # cleanup possible old task dir
     subprocess.run(f"rmdir {TASK_ID} /S /Q", cwd=f"{ROOT}\\output", shell=True)
 
